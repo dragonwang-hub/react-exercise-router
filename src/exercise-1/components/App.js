@@ -3,6 +3,8 @@ import { Route, Link, Switch } from 'react-router-dom';
 import Home from './Home';
 import AboutUs from './AboutUs';
 import Profile from './Profile';
+import Products from './Products';
+import Product from './Product';
 import '../styles/App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -11,9 +13,12 @@ class App extends Component {
     return (
       <div className="app container">
         <Router>
-          <nav class="navbar navbar-dark bg-primary bg-light">
+          <nav className="navbar navbar-dark bg-primary bg-light">
             <Link to="/" className="nav-link" id="nav-first">
               Home
+            </Link>
+            <Link to="/products" className="nav-link">
+              Products
             </Link>
             <Link to="/my-profile" className="nav-link">
               My Profile
@@ -23,6 +28,8 @@ class App extends Component {
              </Link>
           </nav>
           <Switch>
+            <Route exact path="/products/:id" component={Product} />
+            <Route exact path="/products" component={Products} />
             <Route exact path="/my-profile" component={Profile} />
             <Route exact path="/about-us" component={AboutUs} />
             <Route exact path="/" component={Home} />
