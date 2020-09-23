@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
 import AboutUs from './AboutUs';
 import Profile from './Profile';
@@ -30,9 +30,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/products/:id" component={Product} />
             <Route exact path="/products" component={Products} />
+            <Redirect from="/goods" to="/products"></Redirect>
             <Route exact path="/my-profile" component={Profile} />
             <Route exact path="/about-us" component={AboutUs} />
             <Route exact path="/" component={Home} />
+            <Redirect to="/"></Redirect>
           </Switch>
         </Router>
 
