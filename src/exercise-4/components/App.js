@@ -13,7 +13,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/:user(\d+)' component={User} />
-            <Redirect from='/about' to='/:user(\d+)'></Redirect>
+            <Route exact path='/about' component={User} />
             <Route exact component={NotMatch} />
           </Switch>
         </Router>
