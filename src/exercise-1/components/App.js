@@ -30,11 +30,10 @@ class App extends Component {
           <Switch>
             <Route exact path="/products/:id" component={Product} />
             <Route exact path="/products" component={Products} />
-            <Redirect from="/goods" to="/products"></Redirect>
+            <Route exact path="/goods" component={Products} />
             <Route exact path="/my-profile" component={Profile} />
             <Route exact path="/about-us" component={AboutUs} />
             <Route exact path="/" component={Home} />
-            <Redirect to="/"></Redirect>
           </Switch>
         </Router>
 
