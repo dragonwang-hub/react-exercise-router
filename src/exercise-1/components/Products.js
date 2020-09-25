@@ -1,19 +1,37 @@
-import React, { Fragment, Component } from 'react';
-import { Route } from 'react-router-dom';
-import Product from './Product';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import data from '../../exercise-2/mockups/data.json';
 
 
 class Products extends Component {
+  state = {
+    products: {},
+  };
+
+  componentDidMount() {
+    this.setState({
+      products: data,
+    });
+  };
+
   render() {
     return (
-      <Fragment>
+      <div>
         <h1>All Products:</h1>
-        <a href="/products/1">Bicycle</a><br />
-        <a href="/products/2">TV</a><br />
-        <a href="/products/3">Pencil</a><br />
-        <Route exact path="/products/:id" component={Product} />
-      </Fragment>
-    );
+        <div className="product_keyname">
+          {
+            Object.keys(this.state.products).map((productName, index) =>
+              <div key={index}>
+                <Link to={`/products/${data[productName].id}`}
+                >
+                  {productName}
+                </Link>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    )
   }
 }
 

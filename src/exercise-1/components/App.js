@@ -28,8 +28,8 @@ class App extends Component {
              </Link>
           </nav>
           <Switch>
-            <Route exact path="/products/:id" component={Product} />
             <Route exact path="/products" component={Products} />
+            <Route exact path="/products/:id" component={Product} />
             <Route exact path="/goods" component={Products} />
             <Route exact path="/my-profile" component={Profile} />
             <Route exact path="/about-us" component={AboutUs} />
